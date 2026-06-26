@@ -1,33 +1,10 @@
-const lifeAreas = [
-  { name: 'Health', activeGoals: 2, openTasks: 4, status: 'Stable' },
-  { name: 'Career', activeGoals: 3, openTasks: 6, status: 'Needs focus' },
-  { name: 'Finance', activeGoals: 1, openTasks: 2, status: 'On track' },
-  { name: 'Projects', activeGoals: 2, openTasks: 5, status: 'Active' },
-];
-
-const activeGoals = [
-  {
-    title: 'Build the first usable LifeOS dashboard',
-    area: 'Projects',
-    priority: 'High',
-  },
-  {
-    title: 'Prepare a stronger developer portfolio',
-    area: 'Career',
-    priority: 'High',
-  },
-  {
-    title: 'Create a weekly health routine',
-    area: 'Health',
-    priority: 'Medium',
-  },
-];
-
-const openTasks = [
-  { title: 'Replace Vite starter UI', area: 'Projects', due: 'Today' },
-  { title: 'Create dashboard cards', area: 'Projects', due: 'This week' },
-  { title: 'Review CV project section', area: 'Career', due: 'This week' },
-];
+import {
+  activeGoals,
+  aiDailyBrief,
+  lifeAreas,
+  openTasks,
+  weeklyProgress,
+} from '../data/dashboardMockData';
 
 export function DashboardPage() {
   return (
@@ -97,7 +74,10 @@ export function DashboardPage() {
               >
                 <div>
                   <p className="font-medium text-white">{goal.title}</p>
-                  <p className="mt-1 text-sm text-slate-400">{goal.area}</p>
+                  <p className="mt-1 text-sm text-slate-400">
+                    {goal.area} · {goal.targetDate}
+                  </p>
+                  <p className="mt-2 text-sm text-slate-500">{goal.progressNote}</p>
                 </div>
                 <span className="w-fit rounded-full bg-white/10 px-3 py-1 text-xs text-slate-200">
                   {goal.priority}
@@ -112,14 +92,11 @@ export function DashboardPage() {
             AI Daily Brief
           </p>
           <h2 className="mt-2 text-2xl font-semibold text-white">Suggested next action</h2>
-          <p className="mt-4 text-sm leading-6 text-slate-300">
-            Career and Projects are the most active areas this week. Keep the dashboard scope small,
-            finish the visual shell, and avoid adding backend work before the first usable screen is
-            ready.
-          </p>
+          <p className="mt-4 text-sm leading-6 text-slate-300">{aiDailyBrief.summary}</p>
           <div className="mt-5 rounded-xl border border-teal-400/20 bg-teal-400/10 p-4 text-sm text-teal-100">
-            Next: replace the starter screen with a clean LifeOS dashboard.
+            Next: {aiDailyBrief.suggestedNextAction}
           </div>
+          <p className="mt-4 text-sm leading-6 text-slate-400">{aiDailyBrief.riskNote}</p>
         </article>
       </section>
 
@@ -133,7 +110,7 @@ export function DashboardPage() {
               <div key={task.title} className="rounded-xl bg-slate-950/50 p-4">
                 <p className="font-medium text-white">{task.title}</p>
                 <p className="mt-1 text-sm text-slate-400">
-                  {task.area} · {task.due}
+                  {task.area} · {task.due} · {task.status}
                 </p>
               </div>
             ))}
@@ -145,11 +122,23 @@ export function DashboardPage() {
             Weekly Progress
           </p>
           <h2 className="mt-2 text-2xl font-semibold text-white">Foundation is ready</h2>
-          <p className="mt-4 text-sm leading-6 text-slate-300">
-            Sprint 0 created the product, architecture, repository, testing, CI, and privacy
-            foundation. Sprint 1 now turns that foundation into the first visible product
-            experience.
-          </p>
+
+          <div className="mt-5 grid grid-cols-3 gap-3">
+            <div className="rounded-xl bg-slate-950/50 p-4">
+              <p className="text-2xl font-semibold text-white">{weeklyProgress.completedTasks}</p>
+              <p className="mt-1 text-xs text-slate-400">Tasks done</p>
+            </div>
+            <div className="rounded-xl bg-slate-950/50 p-4">
+              <p className="text-2xl font-semibold text-white">{weeklyProgress.goalsTouched}</p>
+              <p className="mt-1 text-xs text-slate-400">Goals touched</p>
+            </div>
+            <div className="rounded-xl bg-slate-950/50 p-4">
+              <p className="text-sm font-semibold text-white">{weeklyProgress.reviewStatus}</p>
+              <p className="mt-1 text-xs text-slate-400">Review</p>
+            </div>
+          </div>
+
+          <p className="mt-4 text-sm leading-6 text-slate-300">{weeklyProgress.summary}</p>
         </article>
       </section>
     </div>
