@@ -1,10 +1,17 @@
 import type { ReactNode } from 'react';
+import { NavLink } from 'react-router';
 
 type AppLayoutProps = {
   children: ReactNode;
 };
 
-const navigationItems = ['Dashboard', 'Goals', 'Tasks', 'Reviews', 'Settings'];
+const navigationItems = [
+  { label: 'Dashboard', to: '/' },
+  { label: 'Goals', to: '/goals' },
+  { label: 'Tasks', to: '/tasks' },
+  { label: 'Reviews', to: '/reviews' },
+  { label: 'Settings', to: '/settings' },
+];
 
 export function AppLayout({ children }: AppLayoutProps) {
   return (
@@ -18,13 +25,21 @@ export function AppLayout({ children }: AppLayoutProps) {
 
           <nav className="mt-10 space-y-2" aria-label="Main navigation">
             {navigationItems.map((item) => (
-              <a
-                key={item}
-                href="#"
-                className="block rounded-xl px-3 py-2 text-sm text-slate-300 transition hover:bg-white/5 hover:text-white"
+              <NavLink
+                key={item.to}
+                to={item.to}
+                end={item.to === '/'}
+                className={({ isActive }) =>
+                  [
+                    'block rounded-xl px-3 py-2 text-sm transition',
+                    isActive
+                      ? 'bg-teal-400/10 text-teal-100'
+                      : 'text-slate-300 hover:bg-white/5 hover:text-white',
+                  ].join(' ')
+                }
               >
-                {item}
-              </a>
+                {item.label}
+              </NavLink>
             ))}
           </nav>
         </aside>

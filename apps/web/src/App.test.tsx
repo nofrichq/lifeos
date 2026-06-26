@@ -1,9 +1,19 @@
 import { render, screen } from '@testing-library/react';
+import { BrowserRouter } from 'react-router';
+
 import App from './App';
+
+function renderApp() {
+  return render(
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>,
+  );
+}
 
 describe('App', () => {
   it('renders the LifeOS application layout', () => {
-    render(<App />);
+    renderApp();
 
     expect(screen.getByRole('heading', { name: /lifeos dashboard/i })).toBeInTheDocument();
     expect(screen.getByText(/mvp mode/i)).toBeInTheDocument();
@@ -11,7 +21,7 @@ describe('App', () => {
   });
 
   it('renders the LifeOS dashboard shell', () => {
-    render(<App />);
+    renderApp();
 
     expect(
       screen.getByRole('heading', { name: /your personal operating system/i }),
@@ -23,7 +33,7 @@ describe('App', () => {
   });
 
   it('renders the MVP life areas', () => {
-    render(<App />);
+    renderApp();
 
     expect(screen.getByRole('heading', { name: /health/i })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: /career/i })).toBeInTheDocument();
@@ -33,7 +43,7 @@ describe('App', () => {
   });
 
   it('renders active goals and open tasks', () => {
-    render(<App />);
+    renderApp();
 
     expect(screen.getByText(/build the first usable lifeos dashboard/i)).toBeInTheDocument();
     expect(screen.getByText(/prepare a stronger developer portfolio/i)).toBeInTheDocument();
@@ -42,7 +52,7 @@ describe('App', () => {
   });
 
   it('renders AI daily brief and weekly progress', () => {
-    render(<App />);
+    renderApp();
 
     expect(screen.getByText(/ai daily brief/i)).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: /suggested next action/i })).toBeInTheDocument();
@@ -50,5 +60,14 @@ describe('App', () => {
     expect(screen.getByText(/weekly progress/i)).toBeInTheDocument();
     expect(screen.getByText(/tasks done/i)).toBeInTheDocument();
     expect(screen.getByText(/goals touched/i)).toBeInTheDocument();
+  });
+
+  it('renders placeholder routes from navigation', () => {
+    renderApp();
+
+    expect(screen.getByRole('link', { name: /goals/i })).toHaveAttribute('href', '/goals');
+    expect(screen.getByRole('link', { name: /tasks/i })).toHaveAttribute('href', '/tasks');
+    expect(screen.getByRole('link', { name: /reviews/i })).toHaveAttribute('href', '/reviews');
+    expect(screen.getByRole('link', { name: /settings/i })).toHaveAttribute('href', '/settings');
   });
 });
