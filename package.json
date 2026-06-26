@@ -1,0 +1,28 @@
+{
+  "name": "lifeos",
+  "version": "1.0.0",
+  "description": "LifeOS is an AI-supported personal operating system designed to help manage life, work, health, career, finance, and projects from one place.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "prepare": "husky",
+    "precommit:web": "cd apps/web && npm run quality:check"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nofrichq/lifeos.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/nofrichq/lifeos/issues"
+  },
+  "homepage": "https://github.com/nofrichq/lifeos#readme",
+  "devDependencies": {
+    "husky": "^9.1.7"
+  }
+}
