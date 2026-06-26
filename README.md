@@ -170,3 +170,21 @@ The MVP is successful if it can be used daily by the creator to:
 - Run a basic daily or weekly review
 - Get simple AI-assisted summaries or next-action suggestions
 - Demonstrate clean product thinking and engineering discipline in the public repository
+
+## Repository Structure
+
+LifeOS uses a monorepo structure to keep the product organized as it grows.
+
+```text
+apps/
+  web/      Frontend application
+  api/      Backend API
+
+docs/
+  architecture/  Architecture notes and diagrams
+  product/       Product documentation and planning
+  decisions/     Architecture Decision Records
+
+infra/       Infrastructure and deployment files
+packages/    Shared packages and reusable code
+.github/     GitHub workflows, templates, and repository automation
