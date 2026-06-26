@@ -54,13 +54,119 @@ It is not intended to replace every specialized tool from day one. The MVP shoul
 
 LifeOS is also not a place for storing real private user data in the public repository. Any sensitive or personal data should stay local, private, or mocked during public development.
 
-## Initial MVP Direction
+## MVP Scope
 
-The first MVP will focus on:
+The first version of LifeOS will focus on a small but useful operating layer for managing daily life and work. The MVP should be simple enough to build quickly, but structured enough to evolve into a real product.
 
-* A simple dashboard
-* Life areas: health, career, finance, and projects
-* Goals and tasks
-* Daily/weekly review flow
-* Basic AI-assisted summaries or next-action suggestions
-* Clean documentation and project structure
+### Core Modules
+
+#### Dashboard
+
+The dashboard is the main entry point of LifeOS. It should give a quick overview of what matters today, what needs attention, and what changed recently.
+
+Initial dashboard elements:
+
+- Today's focus
+- Active goals
+- Open tasks
+- Recent progress
+- Basic weekly overview
+
+#### Life Areas
+
+LifeOS will start with four core life areas:
+
+- Health
+- Career
+- Finance
+- Projects
+
+Each area should have its own goals, tasks, notes, and review items.
+
+#### Goals
+
+Goals represent meaningful outcomes the user wants to achieve.
+
+Initial goal fields:
+
+- Title
+- Description
+- Life area
+- Status
+- Priority
+- Target date
+- Progress note
+
+#### Tasks
+
+Tasks represent concrete actions linked to goals or life areas.
+
+Initial task fields:
+
+- Title
+- Description
+- Life area
+- Related goal
+- Status
+- Priority
+- Due date
+
+#### Reviews
+
+The MVP should support a simple review flow.
+
+Initial review types:
+
+- Daily review
+- Weekly review
+
+The review flow should help answer:
+
+- What did I do?
+- What changed?
+- What is blocked?
+- What should I focus on next?
+
+#### AI Assistance
+
+AI should be introduced carefully in the MVP.
+
+Initial AI use cases:
+
+- Summarize daily or weekly progress
+- Suggest next actions
+- Detect neglected areas
+- Turn scattered notes into structured tasks
+
+AI should not make decisions automatically. It should assist the user and explain its suggestions clearly.
+
+## MVP Non-Goals
+
+The MVP will intentionally avoid features that would make the first version too large or unfocused.
+
+LifeOS MVP will not include:
+
+- Mobile app
+- Multi-user collaboration
+- Public user accounts
+- Payment system
+- Complex calendar integration
+- Banking integrations
+- Medical data integrations
+- Wearable device integrations
+- Advanced analytics
+- Full AI automation
+- Real private personal data in the public repository
+
+These features may be considered later, but they are outside the first MVP.
+
+## MVP Success Criteria
+
+The MVP is successful if it can be used daily by the creator to:
+
+- See today's focus
+- Track active goals
+- Manage tasks across health, career, finance, and projects
+- Run a basic daily or weekly review
+- Get simple AI-assisted summaries or next-action suggestions
+- Demonstrate clean product thinking and engineering discipline in the public repository
