@@ -2,6 +2,14 @@ import { render, screen } from '@testing-library/react';
 import App from './App';
 
 describe('App', () => {
+  it('renders the LifeOS application layout', () => {
+    render(<App />);
+
+    expect(screen.getByRole('heading', { name: /lifeos dashboard/i })).toBeInTheDocument();
+    expect(screen.getByText(/mvp mode/i)).toBeInTheDocument();
+    expect(screen.getByRole('navigation', { name: /main navigation/i })).toBeInTheDocument();
+  });
+
   it('renders the LifeOS dashboard shell', () => {
     render(<App />);
 
