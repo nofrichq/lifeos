@@ -64,3 +64,50 @@ chore: initialize repository structure
 feat: create dashboard shell
 fix: correct task status mapping
 ci: add GitHub Actions workflow
+test: add web unit testing setup
+```
+
+## Pull Request Rule
+
+Even when working alone, larger changes should be made through pull requests when possible.
+
+Small documentation updates may be committed directly during Sprint 0, but implementation work should gradually move toward a branch and pull request workflow.
+
+## Local Quality Flow
+
+Before pushing changes, run the relevant local quality command.
+
+For the web app:
+
+```bash
+cd apps/web
+npm run quality:check
+```
+
+For changes that need formatting first:
+
+```bash
+cd apps/web
+npm run quality
+```
+
+## Automation
+
+The repository uses GitHub Actions to run web quality checks on push and pull requests.
+
+The web CI workflow should check:
+
+- Formatting
+- Linting
+- Unit tests
+- Production build
+
+## Future Workflow Improvements
+
+Potential future workflow improvements:
+
+- Pre-commit hooks
+- Pull request branch protection
+- Required CI checks before merge
+- Release notes
+- Sprint review template

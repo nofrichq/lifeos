@@ -3,7 +3,7 @@ name: Bug report
 about: Report a bug or unexpected behavior
 title: "fix: "
 labels: ["type:bug"]
-assignees: ""
+assignees: "otatli"
 ---
 
 ## Summary
@@ -12,9 +12,9 @@ Describe the bug briefly.
 
 ## Steps to Reproduce
 
-1. 
-2. 
-3. 
+1.
+2.
+3.
 
 ## Expected Behavior
 

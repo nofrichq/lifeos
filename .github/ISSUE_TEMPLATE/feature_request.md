@@ -3,7 +3,7 @@ name: Feature request
 about: Suggest a new LifeOS feature
 title: "feat: "
 labels: ["type:feature"]
-assignees: ""
+assignees: "otatli"
 ---
 
 ## Summary
@@ -20,9 +20,9 @@ How should it work?
 
 ## Acceptance Criteria
 
-- [ ] 
-- [ ] 
-- [ ] 
+- [ ]
+- [ ]
+- [ ]
 
 ## Notes
 

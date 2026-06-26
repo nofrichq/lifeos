@@ -3,7 +3,7 @@ name: Task
 about: Track an implementation, documentation, or maintenance task
 title: ""
 labels: ["type:task"]
-assignees: ""
+assignees: "otatli"
 ---
 
 ## Summary
@@ -16,9 +16,9 @@ What should be included?
 
 ## Acceptance Criteria
 
-- [ ] 
-- [ ] 
-- [ ] 
+- [ ]
+- [ ]
+- [ ]
 
 ## Notes
 

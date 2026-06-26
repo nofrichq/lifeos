@@ -6,7 +6,7 @@ The goal is not to finalize the entire database schema, but to create a clear st
 
 ## Core Concepts
 
-LifeOS is organized around life areas, goals, tasks, reviews, and AI-assisted insights.
+LifeOS is organized around life areas, goals, tasks, reviews, notes, and AI-assisted insights.
 
 Initial core entities:
 
@@ -33,7 +33,7 @@ Initial fields:
 - createdAt
 - updatedAt
 
-In the first MVP, authentication may start with a single-user/local mode. The data model still keeps a User entity to make future authentication easier.
+In the first MVP, authentication may start with a single-user or local mode. The data model still keeps a User entity to make future authentication easier.
 
 ### LifeArea
 
@@ -212,3 +212,43 @@ LifeArea 1 --- * Note
 Goal 1 --- * Task
 
 Review 1 --- * ReviewItem
+```
+
+## MVP Database Direction
+
+The backend will use PostgreSQL as the primary database.
+
+The initial schema should be managed with Flyway migrations. Database tables should be designed in a way that supports future authentication, multi-user support, and analytics without overengineering the first MVP.
+
+## Naming Direction
+
+Suggested table names:
+
+- `users`
+- `life_areas`
+- `goals`
+- `tasks`
+- `reviews`
+- `review_items`
+- `notes`
+- `ai_insights`
+
+Suggested enum naming style:
+
+- Uppercase enum values in backend code
+- Lowercase or kebab-case labels in the UI
+
+## Notes for Future Iterations
+
+Potential future entities:
+
+- Habit
+- Metric
+- CalendarEvent
+- FinancialTransaction
+- Attachment
+- Integration
+- Notification
+- AuditLog
+
+These are intentionally excluded from the first MVP data model to keep the scope small.

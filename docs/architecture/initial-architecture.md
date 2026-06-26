@@ -19,7 +19,7 @@ The goal of the technology choices is not only to build a working MVP, but also 
 ### Backend
 
 - Java 17+
-- Spring Boot
+- Spring Boot 3
 - Spring Web
 - Spring Security
 - Spring Data JPA
@@ -42,10 +42,11 @@ The goal of the technology choices is not only to build a working MVP, but also 
 
 ### Testing
 
+- Vitest
+- React Testing Library
 - JUnit 5
 - Mockito
 - Testcontainers
-- React Testing Library
 
 ### AI Layer
 
@@ -74,6 +75,24 @@ The backend will be organized by business modules instead of technical layers on
 
 The project will avoid microservices in the MVP because microservices would add unnecessary operational complexity. A modular monolith is more suitable for an early-stage product while still allowing clean boundaries and future scalability.
 
+## Monorepo Direction
+
+The initial monorepo structure is:
+
+```text
+apps/
+  web/      React frontend application
+  api/      Spring Boot backend API
+
+docs/
+  architecture/  Architecture notes and diagrams
+  product/       Product documentation and planning
+  decisions/     Architecture Decision Records
+
+infra/       Infrastructure and deployment files
+packages/    Shared packages and reusable code
+```
+
 ## Why This Stack
 
 This stack was selected because it demonstrates practical, job-relevant engineering skills:
@@ -98,3 +117,15 @@ The first deployment target will be simple and low-cost:
 - Database: Managed PostgreSQL
 
 The deployment target may change later based on cost, reliability, and learning value.
+
+## MVP Architecture Boundaries
+
+The MVP should avoid unnecessary infrastructure and complexity.
+
+Initial rules:
+
+- Start with a single frontend app and a single backend API.
+- Use mock data until the dashboard direction is clear.
+- Add the database after the first custom UI is in place.
+- Add AI integration after the core data model and review flow are usable.
+- Do not introduce microservices during the MVP.

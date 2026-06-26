@@ -1,73 +1,85 @@
-# React + TypeScript + Vite
+# LifeOS Web
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This package contains the first web application shell for LifeOS.
 
-Currently, two official plugins are available:
+The web app is built with React, TypeScript, and Vite. It will initially use static mock data while the product direction, dashboard, and backend API are being developed.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Stack
 
-## React Compiler
+- React
+- TypeScript
+- Vite
+- ESLint
+- Prettier
+- Vitest
+- React Testing Library
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Available Scripts
 
-## Expanding the ESLint configuration
+Run commands from the `apps/web` directory.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Start development server
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+```bash
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Build for production
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+```bash
+npm run build
 ```
+
+### Run linting
+
+```bash
+npm run lint
+```
+
+### Format files
+
+```bash
+npm run format
+```
+
+### Check formatting
+
+```bash
+npm run format:check
+```
+
+### Run tests in watch mode
+
+```bash
+npm run test
+```
+
+### Run tests once
+
+```bash
+npm run test:run
+```
+
+### Run all local quality checks
+
+```bash
+npm run quality:check
+```
+
+### Format and run local quality checks
+
+```bash
+npm run quality
+```
+
+## Testing Direction
+
+The first test setup uses Vitest and React Testing Library.
+
+Testing should focus on user-visible behavior instead of implementation details. Prefer accessible queries such as `getByRole` and `getByLabelText` over brittle text or class-based checks.
+
+## Development Notes
+
+The default Vite starter UI will be replaced with the first LifeOS dashboard implementation in Sprint 1.
+
+Until backend integration is ready, the web app should use mock data only.
