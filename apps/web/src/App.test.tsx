@@ -31,4 +31,13 @@ describe('App', () => {
     expect(screen.getByRole('heading', { name: /projects/i })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: /your operating areas/i })).toBeInTheDocument();
   });
+
+  it('renders active goals and open tasks', () => {
+    render(<App />);
+
+    expect(screen.getByText(/build the first usable lifeos dashboard/i)).toBeInTheDocument();
+    expect(screen.getByText(/prepare a stronger developer portfolio/i)).toBeInTheDocument();
+    expect(screen.getByText(/create dashboard cards/i)).toBeInTheDocument();
+    expect(screen.getByText(/review cv project section/i)).toBeInTheDocument();
+  });
 });

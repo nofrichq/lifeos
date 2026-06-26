@@ -1,3 +1,5 @@
+import { ActiveGoalsCard } from '../components/dashboard/ActiveGoalsCard';
+import { OpenTasksCard } from '../components/dashboard/OpenTasksCard';
 import { LifeAreaOverview } from '../components/dashboard/LifeAreaOverview';
 import {
   activeGoals,
@@ -31,34 +33,7 @@ export function DashboardPage() {
       <LifeAreaOverview areas={lifeAreas} />
 
       <section className="grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
-        <article className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
-          <div>
-            <p className="text-sm font-medium uppercase tracking-[0.2em] text-slate-400">
-              Active Goals
-            </p>
-            <h2 className="mt-2 text-2xl font-semibold text-white">What matters now</h2>
-          </div>
-
-          <div className="mt-6 space-y-3">
-            {activeGoals.map((goal) => (
-              <div
-                key={goal.title}
-                className="flex flex-col gap-2 rounded-xl border border-white/10 bg-slate-950/50 p-4 md:flex-row md:items-center md:justify-between"
-              >
-                <div>
-                  <p className="font-medium text-white">{goal.title}</p>
-                  <p className="mt-1 text-sm text-slate-400">
-                    {goal.area} · {goal.targetDate}
-                  </p>
-                  <p className="mt-2 text-sm text-slate-500">{goal.progressNote}</p>
-                </div>
-                <span className="w-fit rounded-full bg-white/10 px-3 py-1 text-xs text-slate-200">
-                  {goal.priority}
-                </span>
-              </div>
-            ))}
-          </div>
-        </article>
+        <ActiveGoalsCard goals={activeGoals} />
 
         <article className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
           <p className="text-sm font-medium uppercase tracking-[0.2em] text-slate-400">
@@ -74,21 +49,7 @@ export function DashboardPage() {
       </section>
 
       <section className="grid gap-4 lg:grid-cols-2">
-        <article className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-slate-400">
-            Open Tasks
-          </p>
-          <div className="mt-5 space-y-3">
-            {openTasks.map((task) => (
-              <div key={task.title} className="rounded-xl bg-slate-950/50 p-4">
-                <p className="font-medium text-white">{task.title}</p>
-                <p className="mt-1 text-sm text-slate-400">
-                  {task.area} · {task.due} · {task.status}
-                </p>
-              </div>
-            ))}
-          </div>
-        </article>
+        <OpenTasksCard tasks={openTasks} />
 
         <article className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
           <p className="text-sm font-medium uppercase tracking-[0.2em] text-slate-400">
