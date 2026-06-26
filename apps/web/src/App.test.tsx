@@ -29,5 +29,6 @@ describe('App', () => {
     expect(screen.getByRole('heading', { name: /career/i })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: /finance/i })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: /projects/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /your operating areas/i })).toBeInTheDocument();
   });
 });
