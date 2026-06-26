@@ -25,19 +25,21 @@ export function AppLayout({ children }: AppLayoutProps) {
 
           <nav className="mt-10 space-y-2" aria-label="Main navigation">
             {navigationItems.map((item) => (
-                <NavLink
-                    key={item.to}
-                    to={item.to}
-                    end={item.to === '/'}
-                    className={({ isActive }) =>
-                        [
-                        'block rounded-xl px-3 py-2 text-sm transition',
-                        isActive ? 'bg-teal-400/10 text-teal-100' : 'text-slate-300 hover:bg-white/5 hover:text-white',
-                        ].join(' ')
-                    }
-                    >
-                    {item.label}
-                </NavLink>
+              <NavLink
+                key={item.to}
+                to={item.to}
+                end={item.to === '/'}
+                className={({ isActive }) =>
+                  [
+                    'block rounded-xl px-3 py-2 text-sm transition',
+                    isActive
+                      ? 'bg-teal-400/10 text-teal-100'
+                      : 'text-slate-300 hover:bg-white/5 hover:text-white',
+                  ].join(' ')
+                }
+              >
+                {item.label}
+              </NavLink>
             ))}
           </nav>
         </aside>
