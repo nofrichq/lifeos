@@ -40,4 +40,15 @@ describe('App', () => {
     expect(screen.getByText(/create dashboard cards/i)).toBeInTheDocument();
     expect(screen.getByText(/review cv project section/i)).toBeInTheDocument();
   });
+
+  it('renders AI daily brief and weekly progress', () => {
+    render(<App />);
+
+    expect(screen.getByText(/ai daily brief/i)).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /suggested next action/i })).toBeInTheDocument();
+    expect(screen.getByText(/finance has fewer active items/i)).toBeInTheDocument();
+    expect(screen.getByText(/weekly progress/i)).toBeInTheDocument();
+    expect(screen.getByText(/tasks done/i)).toBeInTheDocument();
+    expect(screen.getByText(/goals touched/i)).toBeInTheDocument();
+  });
 });

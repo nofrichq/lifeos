@@ -1,6 +1,8 @@
 import { ActiveGoalsCard } from '../components/dashboard/ActiveGoalsCard';
-import { OpenTasksCard } from '../components/dashboard/OpenTasksCard';
+import { AiDailyBriefCard } from '../components/dashboard/AiDailyBriefCard';
 import { LifeAreaOverview } from '../components/dashboard/LifeAreaOverview';
+import { OpenTasksCard } from '../components/dashboard/OpenTasksCard';
+import { WeeklyProgressCard } from '../components/dashboard/WeeklyProgressCard';
 import {
   activeGoals,
   aiDailyBrief,
@@ -35,45 +37,13 @@ export function DashboardPage() {
       <section className="grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
         <ActiveGoalsCard goals={activeGoals} />
 
-        <article className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-slate-400">
-            AI Daily Brief
-          </p>
-          <h2 className="mt-2 text-2xl font-semibold text-white">Suggested next action</h2>
-          <p className="mt-4 text-sm leading-6 text-slate-300">{aiDailyBrief.summary}</p>
-          <div className="mt-5 rounded-xl border border-teal-400/20 bg-teal-400/10 p-4 text-sm text-teal-100">
-            Next: {aiDailyBrief.suggestedNextAction}
-          </div>
-          <p className="mt-4 text-sm leading-6 text-slate-400">{aiDailyBrief.riskNote}</p>
-        </article>
+        <AiDailyBriefCard brief={aiDailyBrief} />
       </section>
 
       <section className="grid gap-4 lg:grid-cols-2">
         <OpenTasksCard tasks={openTasks} />
 
-        <article className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-slate-400">
-            Weekly Progress
-          </p>
-          <h2 className="mt-2 text-2xl font-semibold text-white">Foundation is ready</h2>
-
-          <div className="mt-5 grid grid-cols-3 gap-3">
-            <div className="rounded-xl bg-slate-950/50 p-4">
-              <p className="text-2xl font-semibold text-white">{weeklyProgress.completedTasks}</p>
-              <p className="mt-1 text-xs text-slate-400">Tasks done</p>
-            </div>
-            <div className="rounded-xl bg-slate-950/50 p-4">
-              <p className="text-2xl font-semibold text-white">{weeklyProgress.goalsTouched}</p>
-              <p className="mt-1 text-xs text-slate-400">Goals touched</p>
-            </div>
-            <div className="rounded-xl bg-slate-950/50 p-4">
-              <p className="text-sm font-semibold text-white">{weeklyProgress.reviewStatus}</p>
-              <p className="mt-1 text-xs text-slate-400">Review</p>
-            </div>
-          </div>
-
-          <p className="mt-4 text-sm leading-6 text-slate-300">{weeklyProgress.summary}</p>
-        </article>
+        <WeeklyProgressCard progress={weeklyProgress} />
       </section>
     </div>
   );
